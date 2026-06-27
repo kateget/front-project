@@ -1,0 +1,187 @@
+@import '@/styles/touhou-vars.less';
+
+.touhouCharDetail {
+  .touhouPaperBase();
+  padding: 1.25rem 1rem 2.5rem;
+}
+
+.touhouCharDetail__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.touhouCharDetail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  color: @ink;
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border: 2px solid @ink;
+  border-radius: 255px 20px 225px 20px / 18px 225px 18px 255px;
+  background: #fffef8;
+  margin-bottom: 1.5rem;
+  transition: transform 0.15s ease;
+
+  &:hover {
+    transform: translateX(-3px);
+  }
+}
+
+.touhouCharDetail__layout {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 720px) {
+    grid-template-columns: minmax(240px, 38%) 1fr;
+    align-items: start;
+  }
+}
+
+.touhouCharDetail__portraitWrap {
+  border: 3px solid @ink;
+  border-radius: 20px 255px 22px 18px / 255px 22px 255px 20px;
+  overflow: hidden;
+  background: #fffdf6;
+  box-shadow: 5px 6px 0 rgba(26, 21, 16, 0.1);
+  transform: rotate(-0.8deg);
+}
+
+.touhouCharDetail__portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  object-position: center bottom;
+  background: linear-gradient(180deg, #fffdf8 0%, #f5efe4 100%);
+}
+
+.touhouCharDetail__portraitCaption {
+  padding: 0.6rem 0.85rem;
+  font-family: var(--font-hand);
+  font-size: 0.9rem;
+  text-align: center;
+  border-top: 2px dashed @ink;
+  opacity: 0.75;
+}
+
+.touhouCharDetail__main {
+  border: 2.5px solid @ink;
+  border-radius: 18px 255px 22px 18px / 255px 20px 255px 20px;
+  background: #fffdf6;
+  padding: 1.25rem 1.35rem 1.5rem;
+  box-shadow: 4px 5px 0 rgba(26, 21, 16, 0.08);
+}
+
+.touhouCharDetail__name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin: 0 0 0.15rem;
+  line-height: 1.15;
+}
+
+.touhouCharDetail__nameJp {
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  color: @accent-purple;
+  margin: 0 0 0.5rem;
+}
+
+.touhouCharDetail__titleTag {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 2px wavy @accent-red;
+  border-bottom: 2px solid transparent;
+  background: linear-gradient(@ink, @ink) bottom / 100% 2px no-repeat;
+  background-size: 100% 2px;
+}
+
+.touhouCharDetail__meta {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.touhouCharDetail__metaItem {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.touhouCharDetail__metaLabel {
+  font-family: var(--font-hand);
+  flex-shrink: 0;
+  min-width: 3.5rem;
+  color: @accent-teal;
+}
+
+.touhouCharDetail__metaValue {
+  flex: 1;
+}
+
+.touhouCharDetail__bioTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin: 0 0 0.65rem;
+}
+
+.touhouCharDetail__bio {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0;
+
+  p {
+    margin: 0 0 0.85rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.touhouCharDetail__nav {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.touhouCharDetail__navLink {
+  font-family: var(--font-hand);
+  font-size: 0.95rem;
+  padding: 0.35rem 0.75rem;
+  border: 2px solid @ink;
+  border-radius: 255px 25px 225px 25px / 25px 225px 25px 255px;
+  background: #fffef8;
+  color: @ink;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.touhouCharDetail__notFound {
+  text-align: center;
+  padding: 3rem 1rem;
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    font-family: var(--font-hand);
+    color: @accent-red;
+  }
+}

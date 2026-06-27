@@ -1,0 +1,30 @@
+@paper: #f7f2e8;
+@ink: #1a1510;
+@accent-red: #c23a2b;
+@accent-teal: #2a7a6e;
+@accent-purple: #5c3d7a;
+@accent-gold: #c9a227;
+
+.touhouPaperBase() {
+  --font-display: 'Ma Shan Zheng', 'Klee One', serif;
+  --font-hand: 'Patrick Hand', 'Klee One', cursive;
+  --font-body: 'Klee One', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+
+  font-family: var(--font-body);
+  color: @ink;
+  background: @paper;
+  min-height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow-x: clip;
+
+  &::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+}

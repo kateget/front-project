@@ -1,0 +1,255 @@
+@paper: #f7f2e8;
+@ink: #1a1510;
+@accent-red: #c23a2b;
+@accent-teal: #2a7a6e;
+@accent-purple: #5c3d7a;
+@accent-gold: #c9a227;
+
+.touhouHome {
+  --font-display: 'Ma Shan Zheng', 'Klee One', serif;
+  --font-hand: 'Patrick Hand', 'Klee One', cursive;
+  --font-body: 'Klee One', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+
+  font-family: var(--font-body);
+  color: @ink;
+  background: @paper;
+  min-height: 100%;
+  padding: 1.25rem 1rem 2.5rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow-x: clip;
+
+  // 轻微纸张噪点
+  &::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+}
+
+.touhouHome__scribble {
+  position: absolute;
+  width: min(520px, 90vw);
+  height: auto;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.touhouHome__scribble--1 {
+  top: -2%;
+  right: -5%;
+  transform: rotate(8deg);
+}
+
+.touhouHome__scribble--2 {
+  bottom: 10%;
+  left: -8%;
+  transform: rotate(-12deg);
+}
+
+.touhouHome__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.touhouHome__hero {
+  text-align: center;
+  padding: 0.5rem 0 1.5rem;
+}
+
+.touhouHome__badge {
+  display: inline-block;
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 1rem;
+  border: 2px solid @ink;
+  border-radius: 255px 20px 225px 20px / 18px 225px 18px 255px;
+  background: #fffef8;
+  box-shadow: 3px 3px 0 rgba(26, 21, 16, 0.12);
+  transform: rotate(-1.2deg);
+}
+
+.touhouHome__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw, 4.25rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 1rem 0 0.35rem;
+  letter-spacing: 0.02em;
+  text-shadow: 2px 2px 0 rgba(194, 58, 43, 0.15);
+}
+
+.touhouHome__titleRuby {
+  display: block;
+  font-family: var(--font-hand);
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  color: @accent-purple;
+  margin-top: 0.35rem;
+  transform: rotate(0.5deg);
+}
+
+.touhouHome__lead {
+  font-size: 1.05rem;
+  max-width: 34em;
+  margin: 1rem auto 0;
+  line-height: 1.75;
+  opacity: 0.92;
+}
+
+.touhouHome__wave {
+  display: block;
+  margin: 1.25rem auto 0;
+  max-width: 280px;
+  height: 14px;
+  color: @accent-red;
+}
+
+.touhouHome__cta {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  padding: 0.5rem 1.1rem;
+  border: 2.5px solid @ink;
+  border-radius: 255px 25px 225px 25px / 25px 225px 25px 255px;
+  background: linear-gradient(165deg, #fff9e6 0%, #ffe8c8 100%);
+  color: @ink;
+  text-decoration: none;
+  box-shadow: 3px 4px 0 @accent-gold;
+  transform: rotate(-1deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: rotate(0deg) translateY(-2px);
+    box-shadow: 5px 6px 0 @accent-gold;
+  }
+}
+
+.touhouHome__grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.touhouHome__card {
+  position: relative;
+  padding: 1.35rem 1.2rem 1.5rem;
+  background: #fffdf6;
+  border: 2.5px solid @ink;
+  border-radius: 18px 255px 22px 18px / 255px 20px 255px 20px;
+  box-shadow: 4px 5px 0 rgba(26, 21, 16, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:nth-child(odd) {
+    transform: rotate(-0.6deg);
+  }
+
+  &:nth-child(even) {
+    transform: rotate(0.7deg);
+  }
+
+  &:hover {
+    transform: rotate(0deg) translateY(-3px);
+    box-shadow: 6px 8px 0 rgba(26, 21, 16, 0.1);
+  }
+}
+
+.touhouHome__cardTag {
+  font-family: var(--font-hand);
+  font-size: 0.95rem;
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px 12px 8px 10px;
+  margin-bottom: 0.65rem;
+}
+
+.touhouHome__cardTag--red {
+  background: rgba(194, 58, 43, 0.12);
+  color: @accent-red;
+  border: 1px dashed @accent-red;
+}
+
+.touhouHome__cardTag--teal {
+  background: rgba(42, 122, 110, 0.12);
+  color: @accent-teal;
+  border: 1px dashed @accent-teal;
+}
+
+.touhouHome__cardTag--purple {
+  background: rgba(92, 61, 122, 0.12);
+  color: @accent-purple;
+  border: 1px dashed @accent-purple;
+}
+
+.touhouHome__cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.touhouHome__cardText {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  opacity: 0.9;
+}
+
+.touhouHome__cardSketch {
+  margin-top: 1rem;
+  height: 48px;
+  opacity: 0.85;
+}
+
+.touhouHome__spellRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  margin-top: 2.25rem;
+}
+
+.touhouHome__spell {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  padding: 0.4rem 0.9rem;
+  border: 2px solid @ink;
+  border-radius: 255px 25px 225px 25px / 25px 225px 25px 255px;
+  background: linear-gradient(165deg, #fff9e6 0%, #ffe8c8 100%);
+  box-shadow: 2px 3px 0 @accent-gold;
+  transform: rotate(-2deg);
+
+  &:nth-child(2) {
+    transform: rotate(1.5deg);
+    background: linear-gradient(165deg, #f3ecff 0%, #e6dcff 100%);
+    box-shadow: 2px 3px 0 @accent-purple;
+  }
+
+  &:nth-child(3) {
+    transform: rotate(-1deg);
+    background: linear-gradient(165deg, #e8f7f4 0%, #d4efe8 100%);
+    box-shadow: 2px 3px 0 @accent-teal;
+  }
+
+  &:nth-child(4) {
+    transform: rotate(2deg);
+  }
+}
+
+.touhouHome__footnote {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  color: rgba(26, 21, 16, 0.55);
+  line-height: 1.5;
+}
